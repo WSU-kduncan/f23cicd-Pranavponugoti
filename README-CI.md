@@ -94,8 +94,8 @@ sudo apt-get update
         - Docker login is done using github secrets username and password followed by docker build and push operations are done.
         - Pass the context, filename and push is set to `true` as docker image is pushed to dockerhub which is logged in previous step.
     - what variables in workflow are custom to your project
-        - I have used secrets for `username and password`, which can be managed easily at centralized location.
-        - As part of workflow, `reponame is set as environment variable`, which is set once and can be used multiple times in the workflow. As I have used only once as part of tag, it occured single time.
+        - I have used secrets for `dockerhub username and password`, which can be managed easily at centralized location. (Names of them: `DOCKER_USERNAME` and `DOCKER_PASSWORD`)
+        - As part of workflow, `reponame is set as environment variable` - `DOCKER_HUB_REPO`, which is set once and can be used multiple times in the workflow. As I have used only once as part of tag, it occured single time.
         - Similarly other variables can be added based on use case and various steps added in the pipeline.
  - Github workflow run log:
     - ![github action](images/docker3.png)
