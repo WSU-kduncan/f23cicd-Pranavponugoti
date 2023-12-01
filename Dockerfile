@@ -6,6 +6,3 @@ COPY ./website /usr/share/nginx/html
 
 # Expose port 80 outside the container
 EXPOSE 80
-
-# Start Nginx when the container runs
-CMD ["nginx", "-g", "daemon off;"]
