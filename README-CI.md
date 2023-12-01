@@ -100,3 +100,14 @@ sudo apt-get update
  - Github workflow run log:
     - ![github action](images/docker3.png)
 
+## Part 3
+### Diagramming
+
+- The following image explains the Continuous Integration process which involves pushing of code to source control and triggering of workflow that builds and pushes image to docker hub. 
+- This is achieved without manual intervention, thus satisfies continuous integration of developed code to build and publish to docker hub.
+- Later deployment can be implemented to deploy to particular hosting environment using most recent image.
+- Diagram (Exported)
+- ![Docker CI](images/Proj4%20CI.png)
+- The diagram is designed in draw.io site. It is as follows:
+- ![Docker CI drawio](images/Proj4%20CI%20drawio.png)
+
