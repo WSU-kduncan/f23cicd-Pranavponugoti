@@ -3,7 +3,7 @@ name: Build and Publish Docker Image to Dockerhub - Pranav
 on:
   push: #action
     branches: [main]  # branch to be triggered on
-
+    tags: '*'
 env:
   DOCKER_HUB_REPO: pranavponugoti16/docker-test
 
@@ -26,20 +26,19 @@ jobs:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
       
-      - name: Use docker/metadata-action
-        id: metadata
+      - name: Generate tags from the repository
+        id: generate_tags
         uses: docker/metadata-action@v3
         with:
           images: ${{ env.DOCKER_HUB_REPO }}
-          tags: |
-            latest
-            ${{ github.ref }}
-      
+
       - name: Build and push to Pranav's Dockerhub
         uses: docker/build-push-action@v4
         with:
           context: . #Location of dockerfile
           file: ./Dockerfile #Name of dockerfile
           push: true #Push to repo
-          tags: ${{ steps.metadata.outputs.tags }}
+          tags: | 
+            ${{ env.DOCKER_HUB_REPO }}:latest
+            ${{ steps.generate_tags.outputs.tags }}
       - run: echo "end of workflow"
