@@ -2,8 +2,7 @@ name: Build and Publish Docker Image to Dockerhub - Pranav
 
 on:
   push: #action
-    branches: [main]  # branch to be triggered on
-    tags: '*'
+    tags: '*' #trigger when tag is pushed
 env:
   DOCKER_HUB_REPO: pranavponugoti16/docker-test
 
@@ -41,4 +40,5 @@ jobs:
           tags: | 
             ${{ env.DOCKER_HUB_REPO }}:latest
             ${{ steps.generate_tags.outputs.tags }}
+            
       - run: echo "end of workflow"
