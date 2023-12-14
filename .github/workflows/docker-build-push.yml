@@ -41,7 +41,5 @@ jobs:
           context: . #Location of dockerfile
           file: ./Dockerfile #Name of dockerfile
           push: true #Push to repo
-          tags: | 
-            ${{ env.DOCKER_HUB_REPO }}:latest
-            ${{ steps.metadata.outputs.tags }}
+          tags: ${{ steps.metadata.outputs.tags }}
       - run: echo "end of workflow"
