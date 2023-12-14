@@ -6,7 +6,7 @@
       {
          "match":
          {
-           "type":"payload-hash-shal",
+           "type":"payload-hash-sha1",
            "secret": "mysecret",
            "parameter":
            {
