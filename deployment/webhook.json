@@ -1,0 +1,19 @@
+[
+    {
+      "id": "proj5hook",
+      "execute-command": "/home/ubuntu/deploy.sh",
+      "trigger-rule":
+      {
+         "match":
+         {
+           "type":"payload-hash-shal",
+           "secret": "mysecret",
+           "parameter":
+           {
+             "source": "header",
+             "name": "X-Hub-Signature"
+           }
+         }
+      }
+    }
+  ]

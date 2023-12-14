@@ -40,5 +40,12 @@ jobs:
           tags: | 
             ${{ env.DOCKER_HUB_REPO }}:latest
             ${{ steps.generate_tags.outputs.tags }}
-            
+
       - run: echo "end of workflow"
+
+      - name: Send Deployment Webhook
+        uses: distributhor/workflow-webhook@v3
+        with:
+          webhook_auth_type: "header"
+          webhook_url: "${{ secrets.WEBHOOK_URL }}"
+          webhook_secret: "${{ secrets.WEBHOOK_SECRET }}"

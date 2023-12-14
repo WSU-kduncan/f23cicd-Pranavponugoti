@@ -19,7 +19,9 @@ The purpose of this workflow is to automate the image build and deployment proce
 ### Generating a Git Tag
 To generate a Git tag in this repository, follow these steps:
 1. Locally, run `git tag -a <tag_name> -m "Tag message"`
+    - `git tag -a 1.2.0 -m "new tag"`
 2. Push the tag to the remote repository using `git push origin <tag_name>`
+  - `git push origin 1.2.0`
 
 ### Behavior of GitHub Workflow
 This GitHub workflow is triggered when a new tag is pushed to the repository. Upon tag creation, it uses GitHub Actions to perform the following steps:
@@ -36,3 +38,5 @@ This GitHub workflow is triggered when a new tag is pushed to the repository. Up
 [Link to Docker Hub Repository](https://hub.docker.com/repository/docker/pranavponugoti16/docker-test)
 
 ## Part 2 - Deployment
+
+docker pull pranavponugoti16/docker-test:latest
