@@ -26,6 +26,15 @@ jobs:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
       
+      - name: Use docker/metadata-action
+        id: metadata
+        uses: docker/metadata-action@v3
+        with:
+          images: ${{ env.DOCKER_HUB_REPO }}
+          tags: |
+            latest
+            ${{ github.ref }}
+      
       - name: Build and push to Pranav's Dockerhub
         uses: docker/build-push-action@v4
         with:
@@ -34,4 +43,5 @@ jobs:
           push: true #Push to repo
           tags: | 
             ${{ env.DOCKER_HUB_REPO }}:latest
+            ${{ steps.metadata.outputs.tags }}
       - run: echo "end of workflow"
