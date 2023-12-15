@@ -43,6 +43,7 @@ jobs:
 
       - run: echo "end of workflow"
 
+      # Hook trigerred when image with new tag is pushed
       - name: Send Deployment Webhook
         uses: distributhor/workflow-webhook@v3
         with:
